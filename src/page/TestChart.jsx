@@ -17,6 +17,7 @@ import React, { useState, useEffect } from "react";
 import { tableData } from "../model/dataSet";
 import businessViewIcon from "@ui5/webcomponents-icons/dist/business-objects-experience.js";
 import fullStackViewIcon from "@ui5/webcomponents-icons/dist/full-stacked-column-chart.js";
+import lineChartsViewIcon from "@ui5/webcomponents-icons/dist/line-charts.js";
 
 const TestChart = () => {
   const [loading, setLoading] = useState(false);
@@ -70,7 +71,7 @@ const TestChart = () => {
                 }
               />
             }
-            style={{ ...spacing.sapUiContentPadding }}
+            style={{ width: "600px", ...spacing.sapUiContentPadding }}
           >
             <Text style={spacing.sapUiContentPadding}>Breakdown by Month</Text>
             {loading ? (
@@ -184,9 +185,16 @@ const TestChart = () => {
             )}
           </Card>
           <Card
-            header={<CardHeader titleText="ColumnChartWithTrend" interactive />}
-            style={{ ...spacing.sapUiContentPadding }}
+            header={
+              <CardHeader
+                titleText="ColumnChartWithTrend"
+                interactive
+                avatar={<Icon name={lineChartsViewIcon} />}
+              />
+            }
+            style={{ width: "600px", ...spacing.sapUiContentPadding }}
           >
+            <Text style={spacing.sapUiContentPadding}>Breakdown by Month</Text>
             {loading ? (
               <ColumnChartWithTrend
                 dataset={tableData}

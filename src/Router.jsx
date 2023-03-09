@@ -3,6 +3,7 @@ import App from "./App";
 import Home from "./Home";
 import Detail from "./page/Detail";
 import TestChart from "./page/TestChart";
+import TestChart2 from "./page/TestChart2";
 
 const Router = () => {
   return (
@@ -15,6 +16,9 @@ const Router = () => {
       </Routes>
       <Routes>
         <Route path="/test-chart" element={<TestChart />}></Route>
+      </Routes>
+      <Routes>
+        <Route path="/test-chart2" element={<TestChart2 />}></Route>
       </Routes>
     </>
   );

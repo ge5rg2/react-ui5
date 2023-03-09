@@ -37,7 +37,10 @@ const App = () => {
         <SideNavigationItem icon="home" text="Home" onClick={onHomeClick} />
         <SideNavigationItem expanded icon="group" text="People">
           <SideNavigationSubItem text="Test Chart" onClick={onTestChartClick} />
-          <SideNavigationSubItem text="From Other Teams" />
+          <SideNavigationSubItem
+            text="Test Chart2"
+            onClick={() => navigate("/test-chart2")}
+          />
         </SideNavigationItem>
         <SideNavigationItem
           icon="locate-me"
