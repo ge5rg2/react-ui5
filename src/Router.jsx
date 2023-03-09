@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import App from "./App";
 import Home from "./Home";
 import Detail from "./page/Detail";
+import ExRate from "./page/ExRate";
 import TestChart from "./page/TestChart";
 import TestChart2 from "./page/TestChart2";
 
@@ -19,6 +20,9 @@ const Router = () => {
       </Routes>
       <Routes>
         <Route path="/test-chart2" element={<TestChart2 />}></Route>
+      </Routes>
+      <Routes>
+        <Route path="/exchange-rate" element={<ExRate />}></Route>
       </Routes>
     </>
   );

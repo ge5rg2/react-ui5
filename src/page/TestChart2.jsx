@@ -12,10 +12,15 @@ import {
 import { spacing } from "@ui5/webcomponents-react-base";
 import { tableData } from "../model/dataSet";
 import { DonutChart } from "@ui5/webcomponents-react-charts";
-import { LineChart } from "@ui5/webcomponents-react-charts";
-import donutChartViewIcon from "@ui5/webcomponents-icons/dist/donut-chart.js";
+import { PieChart } from "@ui5/webcomponents-react-charts";
+import { RadarChart } from "@ui5/webcomponents-react-charts";
+import { RadialChart } from "@ui5/webcomponents-react-charts";
 
-import kpiChartViewIcon from "@ui5/webcomponents-icons/dist/kpi-corporate-performance.js";
+import donutChartViewIcon from "@ui5/webcomponents-icons/dist/donut-chart.js";
+import pieChartViewIcon from "@ui5/webcomponents-icons/dist/pie-chart.js";
+import radarChartViewIcon from "@ui5/webcomponents-icons/dist/radar-chart";
+import circleViewIcon from "@ui5/webcomponents-icons/dist/circle-task";
+
 import React, { useState, useEffect } from "react";
 
 const TestChart2 = () => {
@@ -70,24 +75,62 @@ const TestChart2 = () => {
               />
             )}
           </Card>
+
           <Card
             header={
               <CardHeader
-                titleText="Line Chart"
+                titleText="Pie Chart"
                 interactive
-                avatar={<Icon name={kpiChartViewIcon} />}
+                avatar={<Icon name={pieChartViewIcon} />}
               />
             }
             style={{ width: "600px", ...spacing.sapUiContentPadding }}
           >
             {loading ? (
-              <LineChart
+              <PieChart
+                dataset={tableData}
+                dimension={{
+                  accessor: "name",
+                }}
+                measure={{
+                  accessor: "users",
+                }}
+                onClick={function ka() {}}
+                onDataPointClick={function ka() {}}
+                onLegendClick={function ka() {}}
+              />
+            ) : (
+              <PieChart
+                dataset={[]}
+                dimension={{
+                  accessor: "name",
+                }}
+                measure={{
+                  accessor: "users",
+                }}
+                onClick={function ka() {}}
+                onDataPointClick={function ka() {}}
+                onLegendClick={function ka() {}}
+              />
+            )}
+          </Card>
+          <Card
+            header={
+              <CardHeader
+                titleText="Radar Chart"
+                interactive
+                avatar={<Icon name={radarChartViewIcon} />}
+              />
+            }
+            style={{ width: "600px", ...spacing.sapUiContentPadding }}
+          >
+            {loading ? (
+              <RadarChart
                 dataset={tableData}
                 dimensions={[
                   {
                     accessor: "name",
-                    formatter: function ka() {},
-                    interval: 0,
+                    //formatter: function ka() {},
                   },
                 ]}
                 measures={[
@@ -95,9 +138,6 @@ const TestChart2 = () => {
                     accessor: "users",
                     //formatter: function ka() {},
                     label: "Users",
-                    lineConfig: {
-                      type: "linear",
-                    },
                   },
                   {
                     accessor: "sessions",
@@ -115,13 +155,12 @@ const TestChart2 = () => {
                 onLegendClick={function ka() {}}
               />
             ) : (
-              <LineChart
+              <RadarChart
                 dataset={[]}
                 dimensions={[
                   {
                     accessor: "name",
                     formatter: function ka() {},
-                    interval: 0,
                   },
                 ]}
                 measures={[
@@ -129,9 +168,6 @@ const TestChart2 = () => {
                     accessor: "users",
                     formatter: function ka() {},
                     label: "Users",
-                    lineConfig: {
-                      type: "linear",
-                    },
                   },
                   {
                     accessor: "sessions",
@@ -147,6 +183,33 @@ const TestChart2 = () => {
                 onClick={function ka() {}}
                 onDataPointClick={function ka() {}}
                 onLegendClick={function ka() {}}
+              />
+            )}
+          </Card>
+          <Card
+            header={
+              <CardHeader
+                titleText="Radial Chart"
+                interactive
+                avatar={<Icon name={circleViewIcon} />}
+              />
+            }
+            style={{ width: "600px", ...spacing.sapUiContentPadding }}
+          >
+            {loading ? (
+              <RadialChart
+                displayValue="50%"
+                onClick={function ka() {}}
+                onDataPointClick={function ka() {}}
+                value={50}
+              />
+            ) : (
+              <RadialChart
+                color="#f0ab00"
+                displayValue=""
+                onClick={function ka() {}}
+                onDataPointClick={function ka() {}}
+                value={0}
               />
             )}
           </Card>

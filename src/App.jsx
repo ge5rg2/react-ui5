@@ -6,6 +6,10 @@ import {
 } from "@ui5/webcomponents-react";
 import { useNavigate } from "react-router-dom";
 import "./App.css"; // import the CSS file
+import home from "@ui5/webcomponents-icons/dist/home";
+import chart from "@ui5/webcomponents-icons/dist/bar-chart";
+import display from "@ui5/webcomponents-icons/dist/display";
+import money from "@ui5/webcomponents-icons/dist/money-bills";
 
 const App = () => {
   const navigate = useNavigate();
@@ -34,9 +38,20 @@ const App = () => {
         onSelectionChange={function noRefCheck() {}}
         style={{ position: "fixed" }}
       >
-        <SideNavigationItem icon="home" text="Home" onClick={onHomeClick} />
-        <SideNavigationItem expanded icon="group" text="People">
+        <SideNavigationItem icon={home} text="Home" onClick={onHomeClick} />
+        <SideNavigationItem expanded icon={chart} text="Chart">
           <SideNavigationSubItem text="Test Chart" onClick={onTestChartClick} />
+          <SideNavigationSubItem
+            text="Test Chart2"
+            onClick={() => navigate("/test-chart2")}
+          />
+        </SideNavigationItem>
+        <SideNavigationItem expanded icon={display} text="Display">
+          <SideNavigationSubItem
+            icon={money}
+            text="Exchange Rate"
+            onClick={() => navigate("/exchange-rate")}
+          />
           <SideNavigationSubItem
             text="Test Chart2"
             onClick={() => navigate("/test-chart2")}
@@ -44,7 +59,6 @@ const App = () => {
         </SideNavigationItem>
         <SideNavigationItem
           icon="locate-me"
-          selected
           text="Detail"
           onClick={onDetailClick}
         />

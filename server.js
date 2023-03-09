@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require("path");
 const app = express();
-const fetch = require("node-fetch");
+const fetchPromise = import("node-fetch");
 const port = process.env.PORT || 8080;
 const cors = require("cors");
 
@@ -34,6 +34,24 @@ app.get("/api", (req, res) => {
   console.log(`${accountID} 사용자가 개요 정보를 불러왔습니다🕊️`);
 });
  */
+
+app.get("/api", async (req, res) => {
+  let target = req.query.country;
+  let url = `https://quotation-api-cdn.dunamu.com/v1/forex/recent?codes=FRX.KRW${target}`;
+  try {
+    const fetch = (await fetchPromise).default;
+    const response = await fetch(url, { method: "GET" });
+    if (response.ok) {
+      const data = await response.json();
+      res.send(data);
+    } else {
+      console.log("Network response was not ok.");
+    }
+  } catch (error) {
+    console.error(error);
+  }
+});
+
 app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "./build/index.html")); // 배포시 사용할 코드(server가 읽는 html 경로)
 });

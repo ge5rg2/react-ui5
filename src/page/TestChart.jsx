@@ -13,10 +13,13 @@ import { spacing } from "@ui5/webcomponents-react-base";
 import { ColumnChart } from "@ui5/webcomponents-react-charts";
 import { ColumnChartWithTrend } from "@ui5/webcomponents-react-charts";
 import { ComposedChart } from "@ui5/webcomponents-react-charts";
+import { LineChart } from "@ui5/webcomponents-react-charts";
 import React, { useState, useEffect } from "react";
 import { tableData } from "../model/dataSet";
+
 import businessViewIcon from "@ui5/webcomponents-icons/dist/business-objects-experience.js";
 import fullStackViewIcon from "@ui5/webcomponents-icons/dist/full-stacked-column-chart.js";
+import kpiChartViewIcon from "@ui5/webcomponents-icons/dist/kpi-corporate-performance.js";
 import lineChartsViewIcon from "@ui5/webcomponents-icons/dist/line-charts.js";
 
 const TestChart = () => {
@@ -252,6 +255,86 @@ const TestChart = () => {
                 style={{
                   height: "400px",
                 }}
+              />
+            )}
+          </Card>{" "}
+          <Card
+            header={
+              <CardHeader
+                titleText="Line Chart"
+                interactive
+                avatar={<Icon name={kpiChartViewIcon} />}
+              />
+            }
+            style={{ maxWidth: "1200px", ...spacing.sapUiContentPadding }}
+          >
+            {loading ? (
+              <LineChart
+                dataset={tableData}
+                dimensions={[
+                  {
+                    accessor: "name",
+                    // formatter: function ka() {},
+                    interval: 0,
+                  },
+                ]}
+                measures={[
+                  {
+                    accessor: "users",
+                    //formatter: function ka() {},
+                    label: "Users",
+                    lineConfig: {
+                      type: "linear",
+                    },
+                  },
+                  {
+                    accessor: "sessions",
+                    //formatter: function ka() {},
+                    hideDataLabel: true,
+                    label: "Active Sessions",
+                  },
+                  {
+                    accessor: "volume",
+                    label: "Vol.",
+                  },
+                ]}
+                onClick={function ka() {}}
+                onDataPointClick={function ka() {}}
+                onLegendClick={function ka() {}}
+              />
+            ) : (
+              <LineChart
+                dataset={[]}
+                dimensions={[
+                  {
+                    accessor: "name",
+                    formatter: function ka() {},
+                    interval: 0,
+                  },
+                ]}
+                measures={[
+                  {
+                    accessor: "users",
+                    formatter: function ka() {},
+                    label: "Users",
+                    lineConfig: {
+                      type: "linear",
+                    },
+                  },
+                  {
+                    accessor: "sessions",
+                    formatter: function ka() {},
+                    hideDataLabel: true,
+                    label: "Active Sessions",
+                  },
+                  {
+                    accessor: "volume",
+                    label: "Vol.",
+                  },
+                ]}
+                onClick={function ka() {}}
+                onDataPointClick={function ka() {}}
+                onLegendClick={function ka() {}}
               />
             )}
           </Card>
