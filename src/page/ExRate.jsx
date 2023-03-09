@@ -91,7 +91,7 @@ const ExRate = () => {
                 avatar={<Icon name={global} />}
               />
             }
-            style={{ maxWidth: "400px", ...spacing.sapUiContentPadding }}
+            style={{ width: "400px", ...spacing.sapUiContentPadding }}
           >
             <AnalyticalCard
               header={

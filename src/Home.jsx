@@ -27,6 +27,7 @@ import { BarChart, LineChart } from "@ui5/webcomponents-react-charts";
 import { ThemingParameters } from "@ui5/webcomponents-react-base";
 import React, { useState } from "react";
 import { tableColumns, dataset } from "./model/dataSet";
+import ExRate from "./page/ExRate";
 
 // https://developers.sap.com/tutorials/ui5-webcomponents-react-routing.html
 
@@ -116,6 +117,7 @@ function Home() {
             />
           )}
         </Card>
+
         <Card
           header={
             <CardHeader
@@ -189,6 +191,7 @@ function Home() {
             </CustomListItem>
           </List>
         </Card>
+
         <Card
           header={
             <CardHeader

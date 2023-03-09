@@ -43,6 +43,7 @@ app.get("/api", async (req, res) => {
     const response = await fetch(url, { method: "GET" });
     if (response.ok) {
       const data = await response.json();
+      console.log(`Load ${data[0].currencyCode} Exchange rate data`);
       res.send(data);
     } else {
       console.log("Network response was not ok.");
