@@ -10,7 +10,83 @@ import {
 } from "@ui5/webcomponents-react";
 import { spacing } from "@ui5/webcomponents-react-base";
 import { ColumnChart } from "@ui5/webcomponents-react-charts";
+import { ColumnChartWithTrend } from "@ui5/webcomponents-react-charts";
 import React, { useState, useEffect } from "react";
+
+const tableData = [
+  {
+    name: "January",
+    sessions: 300,
+    users: 100,
+    volume: 756,
+  },
+  {
+    name: "February",
+    sessions: 330,
+    users: 230,
+    volume: 880,
+  },
+  {
+    name: "March",
+    sessions: 404,
+    users: 240,
+    volume: 700,
+  },
+  {
+    name: "April",
+    sessions: 80,
+    users: 280,
+    volume: 604,
+  },
+  {
+    name: "May",
+    sessions: 300,
+    users: 100,
+    volume: 756,
+  },
+  {
+    name: "June",
+    sessions: 330,
+    users: 230,
+    volume: 880,
+  },
+  {
+    name: "July",
+    sessions: 470,
+    users: 20,
+    volume: 450,
+  },
+  {
+    name: "August",
+    sessions: 180,
+    users: 220,
+    volume: 104,
+  },
+  {
+    name: "September",
+    sessions: 360,
+    users: 200,
+    volume: 879,
+  },
+  {
+    name: "October",
+    sessions: 500,
+    users: 250,
+    volume: 200,
+  },
+  {
+    name: "November",
+    sessions: 404,
+    users: 240,
+    volume: 700,
+  },
+  {
+    name: "December",
+    sessions: 80,
+    users: 280,
+    volume: 604,
+  },
+];
 
 const TestChart = () => {
   const [loading, setLoading] = useState(false);
@@ -35,80 +111,7 @@ const TestChart = () => {
           >
             {loading ? (
               <ColumnChart
-                dataset={[
-                  {
-                    name: "January",
-                    sessions: 300,
-                    users: 100,
-                    volume: 756,
-                  },
-                  {
-                    name: "February",
-                    sessions: 330,
-                    users: 230,
-                    volume: 880,
-                  },
-                  {
-                    name: "March",
-                    sessions: 404,
-                    users: 240,
-                    volume: 700,
-                  },
-                  {
-                    name: "April",
-                    sessions: 80,
-                    users: 280,
-                    volume: 604,
-                  },
-                  {
-                    name: "May",
-                    sessions: 300,
-                    users: 100,
-                    volume: 756,
-                  },
-                  {
-                    name: "June",
-                    sessions: 330,
-                    users: 230,
-                    volume: 880,
-                  },
-                  {
-                    name: "July",
-                    sessions: 470,
-                    users: 20,
-                    volume: 450,
-                  },
-                  {
-                    name: "August",
-                    sessions: 180,
-                    users: 220,
-                    volume: 104,
-                  },
-                  {
-                    name: "September",
-                    sessions: 360,
-                    users: 200,
-                    volume: 879,
-                  },
-                  {
-                    name: "October",
-                    sessions: 500,
-                    users: 250,
-                    volume: 200,
-                  },
-                  {
-                    name: "November",
-                    sessions: 404,
-                    users: 240,
-                    volume: 700,
-                  },
-                  {
-                    name: "December",
-                    sessions: 80,
-                    users: 280,
-                    volume: 604,
-                  },
-                ]}
+                dataset={tableData}
                 dimensions={[
                   {
                     accessor: "name",
@@ -134,6 +137,13 @@ const TestChart = () => {
                     label: "Vol.",
                   },
                 ]}
+                chartConfig={{
+                  referenceLine: {
+                    color: "red",
+                    label: "MAX",
+                    value: 650,
+                  },
+                }}
                 onClick={function ka() {}}
                 onDataPointClick={function ka(e) {
                   console.log(e.detail.payload);
@@ -169,6 +179,75 @@ const TestChart = () => {
                 onClick={function ka() {}}
                 onDataPointClick={function ka() {}}
                 onLegendClick={function ka() {}}
+              />
+            )}
+          </Card>
+          <Card
+            header={
+              <CardHeader
+                titleText="Breakdown by Month With Trend"
+                interactive
+              />
+            }
+            style={{ ...spacing.sapUiContentPadding }}
+          >
+            {loading ? (
+              <ColumnChartWithTrend
+                dataset={tableData}
+                dimensions={[
+                  {
+                    accessor: "name",
+                    formatter: function ka() {},
+                  },
+                ]}
+                measures={[
+                  {
+                    accessor: "users",
+                    formatter: function ka() {},
+                    label: "Users",
+                    type: "line",
+                  },
+                  {
+                    accessor: "sessions",
+                    label: "Active Sessions",
+                    type: "bar",
+                  },
+                ]}
+                onClick={function ka() {}}
+                onDataPointClick={function ka() {}}
+                onLegendClick={function ka() {}}
+                style={{
+                  height: "400px",
+                }}
+              />
+            ) : (
+              <ColumnChartWithTrend
+                dataset={[]}
+                dimensions={[
+                  {
+                    accessor: "name",
+                    formatter: function ka() {},
+                  },
+                ]}
+                measures={[
+                  {
+                    accessor: "users",
+                    formatter: function ka() {},
+                    label: "Users",
+                    type: "line",
+                  },
+                  {
+                    accessor: "sessions",
+                    label: "Active Sessions",
+                    type: "bar",
+                  },
+                ]}
+                onClick={function ka() {}}
+                onDataPointClick={function ka() {}}
+                onLegendClick={function ka() {}}
+                style={{
+                  height: "400px",
+                }}
               />
             )}
           </Card>

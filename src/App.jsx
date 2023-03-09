@@ -32,7 +32,7 @@ const App = () => {
           </>
         }
         onSelectionChange={function noRefCheck() {}}
-        style={{ position: "absolute" }}
+        style={{ position: "fixed" }}
       >
         <SideNavigationItem icon="home" text="Home" onClick={onHomeClick} />
         <SideNavigationItem expanded icon="group" text="People">
