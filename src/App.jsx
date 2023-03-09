@@ -18,6 +18,10 @@ const App = () => {
     navigate("/detail");
   };
 
+  const onTestChartClick = () => {
+    navigate("/test-chart");
+  };
+
   return (
     <>
       <SideNavigation
@@ -30,15 +34,15 @@ const App = () => {
         onSelectionChange={function noRefCheck() {}}
         style={{ position: "absolute" }}
       >
-        <SideNavigationItem icon="home" text="성과관리" onClick={onHomeClick} />
+        <SideNavigationItem icon="home" text="Home" onClick={onHomeClick} />
         <SideNavigationItem expanded icon="group" text="People">
-          <SideNavigationSubItem text="From My Team" />
+          <SideNavigationSubItem text="Test Chart" onClick={onTestChartClick} />
           <SideNavigationSubItem text="From Other Teams" />
         </SideNavigationItem>
         <SideNavigationItem
           icon="locate-me"
           selected
-          text="인사평가"
+          text="Detail"
           onClick={onDetailClick}
         />
         <SideNavigationItem icon="calendar" text="Events">
