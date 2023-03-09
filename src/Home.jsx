@@ -26,39 +26,9 @@ import { spacing } from "@ui5/webcomponents-react-base";
 import { BarChart, LineChart } from "@ui5/webcomponents-react-charts";
 import { ThemingParameters } from "@ui5/webcomponents-react-base";
 import React, { useState } from "react";
+import { tableColumns, dataset } from "./model/dataSet";
 
 // https://developers.sap.com/tutorials/ui5-webcomponents-react-routing.html
-
-const dataset = [
-  {
-    month: "January",
-    data: 65,
-  },
-  {
-    month: "February",
-    data: 59,
-  },
-  {
-    month: "March",
-    data: 80,
-  },
-  {
-    month: "April",
-    data: 81,
-  },
-  {
-    month: "May",
-    data: 56,
-  },
-  {
-    month: "June",
-    data: 55,
-  },
-  {
-    month: "July",
-    data: 40,
-  },
-];
 
 const tableData = new Array(500).fill(null).map((_, index) => {
   return {
@@ -70,25 +40,6 @@ const tableData = new Array(500).fill(null).map((_, index) => {
     },
   };
 });
-
-const tableColumns = [
-  {
-    Header: "Name",
-    accessor: "name", // String-based value accessors!
-  },
-  {
-    Header: "Age",
-    accessor: "age",
-  },
-  {
-    Header: "Friend Name",
-    accessor: "friend.name",
-  },
-  {
-    Header: "Friend Age",
-    accessor: "friend.age",
-  },
-];
 
 function Home() {
   const [toggleCharts, setToggleCharts] = useState("lineChart");

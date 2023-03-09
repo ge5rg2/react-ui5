@@ -3,6 +3,7 @@ import {
   Card,
   CardHeader,
   Icon,
+  Text,
   FlexBox,
   FlexBoxJustifyContent,
   FlexBoxWrap,
@@ -11,85 +12,32 @@ import {
 import { spacing } from "@ui5/webcomponents-react-base";
 import { ColumnChart } from "@ui5/webcomponents-react-charts";
 import { ColumnChartWithTrend } from "@ui5/webcomponents-react-charts";
+import { ComposedChart } from "@ui5/webcomponents-react-charts";
 import React, { useState, useEffect } from "react";
-
-const tableData = [
-  {
-    name: "January",
-    sessions: 300,
-    users: 100,
-    volume: 756,
-  },
-  {
-    name: "February",
-    sessions: 330,
-    users: 230,
-    volume: 880,
-  },
-  {
-    name: "March",
-    sessions: 404,
-    users: 240,
-    volume: 700,
-  },
-  {
-    name: "April",
-    sessions: 80,
-    users: 280,
-    volume: 604,
-  },
-  {
-    name: "May",
-    sessions: 300,
-    users: 100,
-    volume: 756,
-  },
-  {
-    name: "June",
-    sessions: 330,
-    users: 230,
-    volume: 880,
-  },
-  {
-    name: "July",
-    sessions: 470,
-    users: 20,
-    volume: 450,
-  },
-  {
-    name: "August",
-    sessions: 180,
-    users: 220,
-    volume: 104,
-  },
-  {
-    name: "September",
-    sessions: 360,
-    users: 200,
-    volume: 879,
-  },
-  {
-    name: "October",
-    sessions: 500,
-    users: 250,
-    volume: 200,
-  },
-  {
-    name: "November",
-    sessions: 404,
-    users: 240,
-    volume: 700,
-  },
-  {
-    name: "December",
-    sessions: 80,
-    users: 280,
-    volume: 604,
-  },
-];
+import { tableData } from "../model/dataSet";
+import businessViewIcon from "@ui5/webcomponents-icons/dist/business-objects-experience.js";
+import fullStackViewIcon from "@ui5/webcomponents-icons/dist/full-stacked-column-chart.js";
 
 const TestChart = () => {
   const [loading, setLoading] = useState(false);
+  const [toggleLoading, setToggleLoading] = useState(false);
+  const [toggleCharts, setToggleCharts] = useState("ColumnChart");
+
+  const handleHeaderClick = () => {
+    if (toggleCharts === "ColumnChart") {
+      setToggleLoading(true);
+      setTimeout(() => {
+        setToggleLoading(false);
+        setToggleCharts("ComposedChart");
+      }, 2000);
+    } else {
+      setToggleLoading(true);
+      setTimeout(() => {
+        setToggleLoading(false);
+        setToggleCharts("ColumnChart");
+      }, 2000);
+    }
+  };
 
   useEffect(() => {
     setTimeout(() => {
@@ -106,50 +54,103 @@ const TestChart = () => {
           style={spacing.sapUiContentPadding}
         >
           <Card
-            header={<CardHeader titleText="Breakdown by Month" interactive />}
+            header={
+              <CardHeader
+                titleText={toggleCharts}
+                interactive
+                onClick={handleHeaderClick}
+                avatar={
+                  <Icon
+                    name={
+                      toggleCharts === "ColumnChart"
+                        ? fullStackViewIcon
+                        : businessViewIcon
+                    }
+                  />
+                }
+              />
+            }
             style={{ ...spacing.sapUiContentPadding }}
           >
+            <Text style={spacing.sapUiContentPadding}>Breakdown by Month</Text>
             {loading ? (
-              <ColumnChart
-                dataset={tableData}
-                dimensions={[
-                  {
-                    accessor: "name",
-                    //formatter: function ka() {},
-                  },
-                ]}
-                measures={[
-                  {
-                    accessor: "users",
-                    //formatter: function ka() {},
-                    hideDataLabel: true,
-                    label: "Users",
-                  },
-                  {
-                    accessor: "sessions",
-                    //formatter: function ka() {},
-                    hideDataLabel: true,
-                    label: "Active Sessions",
-                  },
-                  {
-                    accessor: "volume",
-                    hideDataLabel: true,
-                    label: "Vol.",
-                  },
-                ]}
-                chartConfig={{
-                  referenceLine: {
-                    color: "red",
-                    label: "MAX",
-                    value: 650,
-                  },
-                }}
-                onClick={function ka() {}}
-                onDataPointClick={function ka(e) {
-                  console.log(e.detail.payload);
-                }}
-                onLegendClick={function ka() {}}
-              />
+              toggleCharts === "ColumnChart" ? (
+                <ColumnChart
+                  dataset={tableData}
+                  dimensions={[
+                    {
+                      accessor: "name",
+                      //formatter: function ka() {},
+                    },
+                  ]}
+                  measures={[
+                    {
+                      accessor: "users",
+                      //formatter: function ka() {},
+                      hideDataLabel: true,
+                      label: "Users",
+                    },
+                    {
+                      accessor: "sessions",
+                      //formatter: function ka() {},
+                      hideDataLabel: true,
+                      label: "Active Sessions",
+                    },
+                    {
+                      accessor: "volume",
+                      hideDataLabel: true,
+                      label: "Vol.",
+                    },
+                  ]}
+                  chartConfig={{
+                    referenceLine: {
+                      color: "red",
+                      label: "MAX",
+                      value: 650,
+                    },
+                  }}
+                  loading={toggleLoading}
+                  onClick={function ka() {}}
+                  onDataPointClick={function ka(e) {
+                    console.log(e.detail.payload);
+                  }}
+                  onLegendClick={function ka() {}}
+                />
+              ) : (
+                <ComposedChart
+                  dataset={tableData}
+                  dimensions={[
+                    {
+                      accessor: "name",
+                      formatter: function ka() {},
+                      interval: 0,
+                    },
+                  ]}
+                  measures={[
+                    {
+                      accessor: "sessions",
+                      label: "Active Sessions",
+                      type: "bar",
+                    },
+                    {
+                      accessor: "users",
+                      formatter: function ka() {},
+                      label: "Users",
+                      type: "area",
+                    },
+                    {
+                      accessor: "volume",
+                      formatter: function ka() {},
+                      label: "Vol.",
+                      type: "line",
+                    },
+                  ]}
+                  loading={toggleLoading}
+                  onClick={function ka() {}}
+                  onDataPointClick={function ka() {}}
+                  onLegendClick={function ka() {}}
+                />
+              )
             ) : (
               <ColumnChart
                 dataset={[]}
@@ -183,12 +184,7 @@ const TestChart = () => {
             )}
           </Card>
           <Card
-            header={
-              <CardHeader
-                titleText="Breakdown by Month With Trend"
-                interactive
-              />
-            }
+            header={<CardHeader titleText="ColumnChartWithTrend" interactive />}
             style={{ ...spacing.sapUiContentPadding }}
           >
             {loading ? (
