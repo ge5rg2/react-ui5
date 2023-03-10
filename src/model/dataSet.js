@@ -73,22 +73,100 @@ export const tableData = [
   },
 ];
 
+export const tableDummyData = [
+  {
+    Email: "",
+    FirstName: "",
+    City: "",
+    EmployeeID: "",
+    MobilePhoneNumber: "",
+  },
+  {
+    Email: "",
+    FirstName: "",
+    City: "",
+    EmployeeID: "",
+    MobilePhoneNumber: "",
+  },
+  {
+    Email: "",
+    FirstName: "",
+    City: "",
+    EmployeeID: "",
+    MobilePhoneNumber: "",
+  },
+  {
+    Email: "",
+    FirstName: "",
+    City: "",
+    EmployeeID: "",
+    MobilePhoneNumber: "",
+  },
+  {
+    Email: "",
+    FirstName: "",
+    City: "",
+    EmployeeID: "",
+    MobilePhoneNumber: "",
+  },
+  {
+    Email: "",
+    FirstName: "",
+    City: "",
+    EmployeeID: "",
+    MobilePhoneNumber: "",
+  },
+  {
+    Email: "",
+    FirstName: "",
+    City: "",
+    EmployeeID: "",
+    MobilePhoneNumber: "",
+  },
+  {
+    Email: "",
+    FirstName: "",
+    City: "",
+    EmployeeID: "",
+    MobilePhoneNumber: "",
+  },
+  {
+    Email: "",
+    FirstName: "",
+    City: "",
+    EmployeeID: "",
+    MobilePhoneNumber: "",
+  },
+
+  {
+    Email: "",
+    FirstName: "",
+    City: "",
+    EmployeeID: "",
+    MobilePhoneNumber: "",
+  },
+];
+
 export const tableColumns = [
   {
+    Header: "ID",
+    accessor: "EmployeeID",
+  },
+  {
     Header: "Name",
-    accessor: "name", // String-based value accessors!
+    accessor: "FirstName", // String-based value accessors!
   },
   {
-    Header: "Age",
-    accessor: "age",
+    Header: "City",
+    accessor: "City",
   },
   {
-    Header: "Friend Name",
-    accessor: "friend.name",
+    Header: "Email",
+    accessor: "Email",
   },
   {
-    Header: "Friend Age",
-    accessor: "friend.age",
+    Header: "MobilePhoneNumber",
+    accessor: "MobilePhoneNumber",
   },
 ];
 
@@ -256,3 +334,23 @@ export const scatterData = [
     opacity: 0.6,
   },
 ];
+
+/* export const tableColumns = [
+  { Header: "ID", accessor: "EmployeeID" },
+  {
+    Header: "Name",
+    accessor: "FirstName", // String-based value accessors!
+  },
+  {
+    Header: "City",
+    accessor: "City",
+  },
+  {
+    Header: "Email",
+    accessor: "Email",
+  },
+  {
+    Header: "Friend Age",
+    accessor: "friend.age",
+  },
+]; */

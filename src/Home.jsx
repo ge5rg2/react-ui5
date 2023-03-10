@@ -25,58 +25,52 @@ import listIcon from "@ui5/webcomponents-icons/dist/list.js";
 import { spacing } from "@ui5/webcomponents-react-base";
 import { BarChart, LineChart } from "@ui5/webcomponents-react-charts";
 import { ThemingParameters } from "@ui5/webcomponents-react-base";
-import React, { useState } from "react";
-import { tableColumns, dataset } from "./model/dataSet";
-import ExRate from "./page/ExRate";
+import React, { useState, useEffect } from "react";
+import { tableColumns, dataset, tableDummyData } from "./model/dataSet";
+import axios from "axios";
 
 // https://developers.sap.com/tutorials/ui5-webcomponents-react-routing.html
 
-const tableData = new Array(500).fill(null).map((_, index) => {
-  return {
-    name: `name${index}`,
-    age: Math.floor(Math.random() * 100),
-    friend: {
-      name: `friend.Name${index}`,
-      age: Math.floor(Math.random() * 100),
-    },
-  };
-});
-
-function Home() {
+const Home = () => {
   const [toggleCharts, setToggleCharts] = useState("lineChart");
   const [loading, setLoading] = useState(false);
+  const [employeeData, setEmployeeData] = useState(tableDummyData);
+
   const handleHeaderClick = () => {
     if (toggleCharts === "lineChart") {
-      setLoading(true);
-      setTimeout(() => {
-        setLoading(false);
-        setToggleCharts("barChart");
-      }, 2000);
+      setToggleCharts("barChart");
     } else {
-      setLoading(true);
-      setTimeout(() => {
-        setLoading(false);
-        setToggleCharts("lineChart");
-      }, 2000);
+      setToggleCharts("lineChart");
     }
   };
+
   const contentTitle =
     toggleCharts === "lineChart" ? "Line Chart" : "Bar Chart";
   const switchToChart =
     toggleCharts === "lineChart" ? "Bar Chart" : "Line Chart";
+
+  const callCPI = async () => {
+    setLoading(true);
+    try {
+      const response = await axios.get("/api/account");
+      const res = await response;
+      if (res.status == 200) {
+        let callData = res.data;
+        setEmployeeData(callData);
+        setLoading(false);
+      }
+    } catch (err) {
+      setLoading(false);
+      console.log("Error >>", err);
+    }
+  };
+
+  useEffect(() => {
+    callCPI();
+  }, []);
+
   return (
     <div style={{ margin: "0 0 0 220px" }}>
-      {/*  <ShellBar
-        logo={<img src="reactLogo.png" />}
-        profile={
-          <Avatar>
-            <img src="profilePictureExample.png" />
-          </Avatar>
-        }
-        primaryTitle="My App"
-      >
-        <ShellBarItem icon={addIcon} text="Add" />
-      </ShellBar> */}
       <FlexBox
         justifyContent={FlexBoxJustifyContent.Center}
         wrap={FlexBoxWrap.Wrap}
@@ -106,14 +100,14 @@ function Home() {
               dimensions={[{ accessor: "month" }]}
               measures={[{ accessor: "data", label: "Stock Price" }]}
               dataset={dataset}
-              loading={loading}
+              //loading={loading}
             />
           ) : (
             <BarChart
               dimensions={[{ accessor: "month" }]}
               measures={[{ accessor: "data", label: "Stock Price" }]}
               dataset={dataset}
-              loading={loading}
+              //loading={loading}
             />
           )}
         </Card>
@@ -201,15 +195,22 @@ function Home() {
           }
           style={{ maxWidth: "900px", ...spacing.sapUiContentPadding }}
         >
-          <AnalyticalTable
-            data={tableData}
+          {/*           <AnalyticalTable
+            data={employeeData}
             columns={tableColumns}
             visibleRows={10}
+            loading={loading}
+          /> */}
+          <AnalyticalTable
+            data={employeeData}
+            columns={tableColumns}
+            visibleRows={10}
+            loading={loading}
           />
         </Card>
       </FlexBox>
     </div>
   );
-}
+};
 
 export default Home;

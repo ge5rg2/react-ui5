@@ -50,7 +50,7 @@ app.get("/api/account", async (req, res) => {
       const data = await response.json();
       let employeeData = data.EmployeeCollection.Employee;
       console.log(`Load EmployeeCollection Data`);
-      res.send(employeeData.slice(190, employeeData.length - 1));
+      res.send(employeeData.slice(170, employeeData.length - 1));
     } else {
       console.log("Network response was not ok.");
     }
