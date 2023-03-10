@@ -1,3 +1,5 @@
 # React UI5
 
-[Deployed URL](https://mesh-kr.cfapps.ap12.hana.ondemand.com/)
+This is a practice project using ui5 components in React.
+
+[Project URL](https://mesh-kr.cfapps.ap12.hana.ondemand.com/)
