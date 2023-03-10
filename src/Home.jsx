@@ -26,12 +26,14 @@ import { spacing } from "@ui5/webcomponents-react-base";
 import { BarChart, LineChart } from "@ui5/webcomponents-react-charts";
 import { ThemingParameters } from "@ui5/webcomponents-react-base";
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { tableColumns, dataset, tableDummyData } from "./model/dataSet";
 import axios from "axios";
 
 // https://developers.sap.com/tutorials/ui5-webcomponents-react-routing.html
 
 const Home = () => {
+  const navigate = useNavigate();
   const [toggleCharts, setToggleCharts] = useState("lineChart");
   const [loading, setLoading] = useState(false);
   const [employeeData, setEmployeeData] = useState(tableDummyData);
@@ -43,6 +45,13 @@ const Home = () => {
       setToggleCharts("lineChart");
     }
   };
+
+  function handleRowClick(event) {
+    const rowIndex = event.target.getAttribute("data-row-index");
+    const clickedData = employeeData[rowIndex];
+    console.log(clickedData);
+    navigate(`/user/${clickedData.ObjectID}`);
+  }
 
   const contentTitle =
     toggleCharts === "lineChart" ? "Line Chart" : "Bar Chart";
@@ -195,17 +204,12 @@ const Home = () => {
           }
           style={{ maxWidth: "900px", ...spacing.sapUiContentPadding }}
         >
-          {/*           <AnalyticalTable
-            data={employeeData}
-            columns={tableColumns}
-            visibleRows={10}
-            loading={loading}
-          /> */}
           <AnalyticalTable
             data={employeeData}
             columns={tableColumns}
             visibleRows={10}
             loading={loading}
+            onRowClick={handleRowClick}
           />
         </Card>
       </FlexBox>

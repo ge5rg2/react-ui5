@@ -6,6 +6,7 @@ import ExRate from "./page/ExRate";
 import ObjPage from "./page/ObjPage";
 import TestChart from "./page/TestChart";
 import TestChart2 from "./page/TestChart2";
+import UserInfo from "./page/UserInfo";
 
 const Router = () => {
   return (
@@ -27,6 +28,9 @@ const Router = () => {
       </Routes>
       <Routes>
         <Route path="/objaect-page" element={<ObjPage />}></Route>
+      </Routes>
+      <Routes>
+        <Route path="/user/:id" element={<UserInfo />}></Route>
       </Routes>
     </>
   );
