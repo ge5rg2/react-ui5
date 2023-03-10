@@ -13,10 +13,6 @@ app.use(cors());
 
 app.use(express.static(path.join(__dirname, "./build"))); // 배포시 사용할 코드(server가 읽는 html 경로)
 
-function shuffle(array) {
-  array.sort(() => Math.random() - 0.5);
-}
-
 app.get("/api", async (req, res) => {
   let target = req.query.country;
   let url = `https://quotation-api-cdn.dunamu.com/v1/forex/recent?codes=FRX.KRW${target}`;
