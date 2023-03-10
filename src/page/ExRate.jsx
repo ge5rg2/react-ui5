@@ -40,6 +40,39 @@ const ExRate = () => {
     }
   };
 
+  /*    const callCPI = async () => {
+     // 추후 로그인한 유저 정보로
+     let accountID = 1004563;
+     try {
+       const response = await axios.get("/api", {
+         headers: {
+           Authorization: "Basic " + btoa(username + ":" + password),
+           Accept: "application / json",
+         },
+         params: { accountID: accountID },
+       });
+       const res = await response;
+       if (res.status == 200) {
+         let callData = res.data;
+     }} catch (err) {
+       console.log("Error >>", err);
+     }
+   };
+ */
+
+  const callCPI = async () => {
+    try {
+      const response = await axios.get("/api/account");
+      const res = await response;
+      if (res.status == 200) {
+        let callData = res.data;
+        console.log(callData);
+      }
+    } catch (err) {
+      console.log("Error >>", err);
+    }
+  };
+
   const callAPI = async (c) => {
     try {
       const response = await axios.get("/api", {
@@ -72,6 +105,7 @@ const ExRate = () => {
 
   useEffect(() => {
     callAPI(currentCountry);
+    callCPI();
   }, []);
 
   return (
@@ -98,7 +132,7 @@ const ExRate = () => {
                 <AnalyticalCardHeader
                   //description="961.66"
                   scale={changePrice}
-                  state="Error"
+                  state={currentChange == "RISE" ? "Error" : "Normal"}
                   subtitleText="KRW"
                   titleText="Exchange Rate Information"
                   trend={currentChange == "RISE" ? "Up" : "Down"}

@@ -3,6 +3,7 @@ import App from "./App";
 import Home from "./Home";
 import Detail from "./page/Detail";
 import ExRate from "./page/ExRate";
+import ObjPage from "./page/ObjPage";
 import TestChart from "./page/TestChart";
 import TestChart2 from "./page/TestChart2";
 
@@ -23,6 +24,9 @@ const Router = () => {
       </Routes>
       <Routes>
         <Route path="/exchange-rate" element={<ExRate />}></Route>
+      </Routes>
+      <Routes>
+        <Route path="/objaect-page" element={<ObjPage />}></Route>
       </Routes>
     </>
   );

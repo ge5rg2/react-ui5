@@ -52,6 +52,10 @@ const App = () => {
             text="Exchange Rate"
             onClick={() => navigate("/exchange-rate")}
           />
+          <SideNavigationSubItem
+            text="Object Page"
+            onClick={() => navigate("/object-page")}
+          />
         </SideNavigationItem>
         <SideNavigationItem
           icon="locate-me"
