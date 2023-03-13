@@ -30,6 +30,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { tableColumns, dataset, tableDummyData } from "./model/dataSet";
 import axios from "axios";
+import ExRate from "./page/ExRate";
 
 // https://developers.sap.com/tutorials/ui5-webcomponents-react-routing.html
 
@@ -86,6 +87,10 @@ const Home = () => {
     } catch (err) {
       console.log("Error >>", err);
     }
+  };
+
+  const onJokeClick = () => {
+    callJokeAPI();
   };
 
   useEffect(() => {
@@ -231,22 +236,17 @@ const Home = () => {
           header={
             <CardHeader
               titleText="Today's Joke"
+              interactive
+              onClick={callJokeAPI}
               avatar={<Icon name={jokeIcon} />}
             />
           }
           style={{ maxWidth: "400px", ...spacing.sapUiContentPadding }}
         >
-          <Text style={{ padding: "40px" }}>{joke}</Text>
+          <Text style={spacing.sapUiContentPadding}>
+            {!joke ? "Load data..." : joke}
+          </Text>
         </Card>
-        <Card
-          header={
-            <CardHeader
-              titleText="AnalyticalTable"
-              avatar={<Icon name={tableViewIcon} />}
-            />
-          }
-          style={{ maxWidth: "300px", ...spacing.sapUiContentPadding }}
-        ></Card>
       </FlexBox>
     </div>
   );
