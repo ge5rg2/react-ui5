@@ -124,7 +124,7 @@ const UserInfo = () => {
                 }
                 header={userInfo.BusinessPartnerFormattedName}
                 showSubHeaderRight
-                subHeader={userInfo.CreatedBy}
+                subHeader={userInfo.EmployeeID}
               >
                 <ObjectStatus state="Success">employed</ObjectStatus>
               </DynamicPageTitle>
@@ -208,8 +208,8 @@ const UserInfo = () => {
                   }}
                 >
                   <FormGroup titleText="Phone Numbers">
-                    <FormItem label="Home">
-                      <Text>{userInfo.NormalisedMobilePhoneNumber}</Text>
+                    <FormItem label="Office">
+                      <Text>{userInfo.OfficePhoneNumber}</Text>
                     </FormItem>
                     <FormItem label="Mobile">
                       <Text>{userInfo.MobilePhoneNumber}</Text>
@@ -217,23 +217,23 @@ const UserInfo = () => {
                   </FormGroup>
                   <FormGroup titleText="Social Accounts">
                     <FormItem label="LinkedIn">
-                      <Text>/DeniseSmith</Text>
+                      <Text>{"/" + userInfo.UserID}</Text>
                     </FormItem>
                     <FormItem label="Twitter">
-                      <Text>@DeniseSmith</Text>
+                      <Text>{"@" + userInfo.UserID}</Text>
                     </FormItem>
                   </FormGroup>
                   <FormGroup titleText="Addresses">
                     <FormItem label="Home Address">
-                      <Text>2096 Mission Street</Text>
+                      <Text>{userInfo.FormattedPostalAddressDescription}</Text>
                     </FormItem>
-                    <FormItem label="Mailing Address">
-                      <Text>PO Box 32114</Text>
+                    <FormItem label="PostalCode">
+                      <Text>{userInfo.PostalCode}</Text>
                     </FormItem>
                   </FormGroup>
                   <FormGroup titleText="Mailing Address">
                     <FormItem label="Work">
-                      <Text>DeniseSmith@sap.com</Text>
+                      <Text>{userInfo.Email}</Text>
                     </FormItem>
                   </FormGroup>
                 </Form>
@@ -282,7 +282,7 @@ const UserInfo = () => {
                 >
                   <FormItem label="Job Classification">
                     <FlexBox direction="Column">
-                      <Text>Senior UI Developer</Text>
+                      <Text>{userInfo.CreatedBy}</Text>
                       <Label>(UIDEV-SR)</Label>
                     </FlexBox>
                   </FormItem>
@@ -319,22 +319,16 @@ const UserInfo = () => {
                   }}
                 >
                   <FormItem label="Start Date">
-                    <Text>Jan 01, 2018</Text>
+                    <Text>{userInfo.CreatedOn}</Text>
                   </FormItem>
                   <FormItem label="End Date">
-                    <Text>Dec 31, 9999</Text>
+                    <Text>{userInfo.EmployeeValidityEndDate}</Text>
                   </FormItem>
-                  <FormItem label="Payroll Start Date">
-                    <Text>Jan 01, 2018</Text>
+                  <FormItem label="Changed on Date">
+                    <Text>{userInfo.ChangedOn}</Text>
                   </FormItem>
-                  <FormItem label="Benefits Start Date">
-                    <Text>Jul 01, 2018</Text>
-                  </FormItem>
-                  <FormItem label="Company Car Eligibility">
-                    <Text>Jan 01, 2021</Text>
-                  </FormItem>
-                  <FormItem label="Equity Start Date">
-                    <Text>Jul 01, 2018</Text>
+                  <FormItem label="BirthDate">
+                    <Text>{userInfo.BirthDate}</Text>
                   </FormItem>
                 </Form>
               </ObjectPageSubSection>
