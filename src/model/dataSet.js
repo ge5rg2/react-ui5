@@ -76,63 +76,63 @@ export const tableData = [
 export const tableDummyData = [
   {
     Email: "",
-    FirstName: "",
+    LastName: "",
     City: "",
     EmployeeID: "",
     MobilePhoneNumber: "",
   },
   {
     Email: "",
-    FirstName: "",
+    LastName: "",
     City: "",
     EmployeeID: "",
     MobilePhoneNumber: "",
   },
   {
     Email: "",
-    FirstName: "",
+    LastName: "",
     City: "",
     EmployeeID: "",
     MobilePhoneNumber: "",
   },
   {
     Email: "",
-    FirstName: "",
+    LastName: "",
     City: "",
     EmployeeID: "",
     MobilePhoneNumber: "",
   },
   {
     Email: "",
-    FirstName: "",
+    LastName: "",
     City: "",
     EmployeeID: "",
     MobilePhoneNumber: "",
   },
   {
     Email: "",
-    FirstName: "",
+    LastName: "",
     City: "",
     EmployeeID: "",
     MobilePhoneNumber: "",
   },
   {
     Email: "",
-    FirstName: "",
+    LastName: "",
     City: "",
     EmployeeID: "",
     MobilePhoneNumber: "",
   },
   {
     Email: "",
-    FirstName: "",
+    LastName: "",
     City: "",
     EmployeeID: "",
     MobilePhoneNumber: "",
   },
   {
     Email: "",
-    FirstName: "",
+    LastName: "",
     City: "",
     EmployeeID: "",
     MobilePhoneNumber: "",
@@ -140,7 +140,7 @@ export const tableDummyData = [
 
   {
     Email: "",
-    FirstName: "",
+    LastName: "",
     City: "",
     EmployeeID: "",
     MobilePhoneNumber: "",
@@ -154,7 +154,7 @@ export const tableColumns = [
   },
   {
     Header: "Name",
-    accessor: "FirstName", // String-based value accessors!
+    accessor: "LastName", // String-based value accessors!
   },
   {
     Header: "City",

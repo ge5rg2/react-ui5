@@ -40,6 +40,8 @@ import axios from "axios";
 const UserInfo = () => {
   const params = useParams();
   const [userInfo, setUserInfo] = useState([]);
+  const [ranNum, setRanNum] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   const callData = async () => {
     const { id } = params;
@@ -50,8 +52,8 @@ const UserInfo = () => {
       const res = await response;
       if (res.status == 200) {
         let { data } = res;
-        console.log(data);
         setUserInfo(data);
+        setRanNum(Math.floor(Math.random() * 100));
       }
     } catch (err) {
       console.log("Error >>", err);
@@ -71,7 +73,7 @@ const UserInfo = () => {
           style={spacing.sapUiContentPadding}
         >
           <ObjectPage
-            footer={
+            /*             footer={
               <Bar
                 design="FloatingFooter"
                 endContent={
@@ -81,22 +83,25 @@ const UserInfo = () => {
                   </>
                 }
               />
-            }
+            } */
+
             headerContent={
               <DynamicPageHeader>
                 <FlexBox alignItems="Center" wrap="Wrap">
                   <FlexBox direction="Column">
-                    <Link>+33 6 4512 5158</Link>
-                    <Link href="mailto:ui5-webcomponents-react@sap.com">
-                      DeniseSmith@sap.com
+                    <Link>{userInfo.MobilePhoneNumber}</Link>
+                    <Link href={"https://" + userInfo.Email}>
+                      {userInfo.Email}
                     </Link>
-                    <Link href="https://github.com/SAP/ui5-webcomponents-react">
-                      https://github.com/SAP/ui5-webcomponents-react
-                    </Link>
+                    <Link href="https://kghee9612@gmail.com">E-mail</Link>
                   </FlexBox>
                   <FlexBox direction="Column" style={{ padding: "10px" }}>
-                    <Label>San Jose</Label>
-                    <Label>California, USA</Label>
+                    <Label>{userInfo.City}</Label>
+                    <Label>
+                      {userInfo.RegionCodeText +
+                        ", " +
+                        userInfo.CountryCodeText}
+                    </Label>
                   </FlexBox>
                 </FlexBox>
               </DynamicPageHeader>
@@ -112,19 +117,25 @@ const UserInfo = () => {
                 }
                 breadcrumbs={
                   <Breadcrumbs>
-                    <BreadcrumbsItem>Manager Cockpit</BreadcrumbsItem>
-                    <BreadcrumbsItem>My Team</BreadcrumbsItem>
+                    <BreadcrumbsItem>Home</BreadcrumbsItem>
+                    <BreadcrumbsItem>Employees</BreadcrumbsItem>
                     <BreadcrumbsItem>Employee Details</BreadcrumbsItem>
                   </Breadcrumbs>
                 }
-                header="Denise Smith"
+                header={userInfo.BusinessPartnerFormattedName}
                 showSubHeaderRight
-                subHeader="Senior UI Developer"
+                subHeader={userInfo.CreatedBy}
               >
                 <ObjectStatus state="Success">employed</ObjectStatus>
               </DynamicPageTitle>
             }
-            image="https://sap.github.io/ui5-webcomponents-react/assets/Person-eb847016.png"
+            image={
+              "https://randomuser.me/api/portraits/med/" +
+              (userInfo.GenderCode == "1" ? "men" : "women") +
+              "/" +
+              ranNum +
+              ".jpg"
+            }
             imageShapeCircle
             onPinnedStateChange={function ka() {}}
             onSelectedSectionChange={function ka() {}}
@@ -132,10 +143,14 @@ const UserInfo = () => {
             selectedSectionId="goals"
             showHideHeaderButton
             style={{
-              height: "700px",
+              maxHeight: "800px",
             }}
           >
-            <ObjectPageSection aria-label="Goals" id="goals" titleText="Goals">
+            <ObjectPageSection
+              aria-label="Information"
+              id="goals"
+              titleText="Information"
+            >
               <Form
                 columnsL={3}
                 columnsM={2}

@@ -48,8 +48,7 @@ const Home = () => {
 
   function handleRowClick(event) {
     const rowIndex = event.target.getAttribute("data-row-index");
-    const clickedData = employeeData[rowIndex];
-    console.log(clickedData);
+    const clickedData = employeeData[rowIndex - 1];
     navigate(`/user/${clickedData.ObjectID}`);
   }
 
