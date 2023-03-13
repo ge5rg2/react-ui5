@@ -209,10 +209,10 @@ const UserInfo = () => {
                 >
                   <FormGroup titleText="Phone Numbers">
                     <FormItem label="Home">
-                      <Text>+1 234-567-8901</Text>
+                      <Text>{userInfo.NormalisedMobilePhoneNumber}</Text>
                     </FormItem>
-                    <FormItem label="">
-                      <Text>+1 234-567-5555</Text>
+                    <FormItem label="Mobile">
+                      <Text>{userInfo.MobilePhoneNumber}</Text>
                     </FormItem>
                   </FormGroup>
                   <FormGroup titleText="Social Accounts">
