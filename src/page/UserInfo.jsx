@@ -34,11 +34,12 @@ import {
 } from "@ui5/webcomponents-react";
 import { spacing } from "@ui5/webcomponents-react-base";
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const UserInfo = () => {
   const params = useParams();
+  const navigate = useNavigate();
   const [userInfo, setUserInfo] = useState([]);
   const [ranNum, setRanNum] = useState(0);
   const [loading, setLoading] = useState(false);

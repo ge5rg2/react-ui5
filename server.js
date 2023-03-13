@@ -81,6 +81,25 @@ app.get("/api/user", async (req, res) => {
   }
 });
 
+app.get("/api/joke", async (req, res) => {
+  try {
+    const fetch = (await fetchPromise).default;
+    const response = await fetch("https://icanhazdadjoke.com", {
+      headers: {
+        Accept: "application/json",
+      },
+    });
+    if (response.ok) {
+      const data = await response.json();
+      res.send(data.joke);
+    } else {
+      console.log("Network response was not ok.");
+    }
+  } catch (error) {
+    console.error(error);
+  }
+});
+
 app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "./build/index.html")); // 배포시 사용할 코드(server가 읽는 html 경로)
 });

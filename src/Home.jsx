@@ -21,6 +21,7 @@ import lineChartIcon from "@ui5/webcomponents-icons/dist/line-chart.js";
 import barChartIcon from "@ui5/webcomponents-icons/dist/horizontal-bar-chart.js";
 import addIcon from "@ui5/webcomponents-icons/dist/add.js";
 import tableViewIcon from "@ui5/webcomponents-icons/dist/table-view.js";
+import jokeIcon from "@ui5/webcomponents-icons/dist/general-leave-request";
 import listIcon from "@ui5/webcomponents-icons/dist/list.js";
 import { spacing } from "@ui5/webcomponents-react-base";
 import { BarChart, LineChart } from "@ui5/webcomponents-react-charts";
@@ -37,6 +38,7 @@ const Home = () => {
   const [toggleCharts, setToggleCharts] = useState("lineChart");
   const [loading, setLoading] = useState(false);
   const [employeeData, setEmployeeData] = useState(tableDummyData);
+  const [joke, setJoke] = useState("");
 
   const handleHeaderClick = () => {
     if (toggleCharts === "lineChart") {
@@ -73,8 +75,22 @@ const Home = () => {
     }
   };
 
+  const callJokeAPI = async () => {
+    try {
+      const response = await axios.get("/api/joke");
+      const res = await response;
+      if (res.status == 200) {
+        let jokeData = res.data;
+        setJoke(jokeData);
+      }
+    } catch (err) {
+      console.log("Error >>", err);
+    }
+  };
+
   useEffect(() => {
     callCPI();
+    callJokeAPI();
   }, []);
 
   return (
@@ -211,6 +227,26 @@ const Home = () => {
             onRowClick={handleRowClick}
           />
         </Card>
+        <Card
+          header={
+            <CardHeader
+              titleText="Today's Joke"
+              avatar={<Icon name={jokeIcon} />}
+            />
+          }
+          style={{ maxWidth: "400px", ...spacing.sapUiContentPadding }}
+        >
+          <Text style={{ padding: "40px" }}>{joke}</Text>
+        </Card>
+        <Card
+          header={
+            <CardHeader
+              titleText="AnalyticalTable"
+              avatar={<Icon name={tableViewIcon} />}
+            />
+          }
+          style={{ maxWidth: "300px", ...spacing.sapUiContentPadding }}
+        ></Card>
       </FlexBox>
     </div>
   );
