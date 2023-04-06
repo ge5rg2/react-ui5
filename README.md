@@ -10,24 +10,22 @@ We implemented various types of charts, exchange rate tables, and tables using e
 
 `Home.jsx`
 
-![Home](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/6ce80ced-be72-484d-ba31-67597d7005e6/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230313%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230313T065150Z&X-Amz-Expires=86400&X-Amz-Signature=b60e22bee247ff1fc46e0c6bed80a663c393cd375fa8b8efc70ca074dc0558fc&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Untitled.png%22&x-id=GetObject)
+![Home](https://file.notion.so/f/s/a19e5cd4-2119-43ff-9013-cd9d4edd9410/Untitled.png?id=350a21bb-13dd-4f4e-a1e4-7e815b4f91d3&table=block&spaceId=09535c88-7789-4820-9158-4ae62342203e&expirationTimestamp=1680836311299&signature=UM-hvfGXL_hiRtTrL24KlkYW5xuwJB0X8XbXbQ7DPqs&downloadName=Untitled.png)
 
 `UserInfo.jsx`
 
-![UserInfo](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/65f30f64-0e08-4b13-a712-5ca9d8685c1d/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230313%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230313T065140Z&X-Amz-Expires=86400&X-Amz-Signature=510fe0f586633d124beabba9bd48cfc23b045062f0712b2611771ec037657b61&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Untitled.png%22&x-id=GetObject)
+![UserInfo](https://file.notion.so/f/s/9eb1afcf-9446-4286-9bfd-2a61e7467775/Untitled.png?id=d0f639d3-f42b-4520-98c4-27c7c6d6d91a&table=block&spaceId=09535c88-7789-4820-9158-4ae62342203e&expirationTimestamp=1680836378828&signature=wGQVDcCkYWHLPOWBG-jPJiY2DWHcQNzohE8QcMdYDWU&downloadName=Untitled.png)
 
 `Chart.jsx`
 
-![Chart](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/55c300cc-943d-4141-b60e-5cbaac68217e/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230313%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230313T065110Z&X-Amz-Expires=86400&X-Amz-Signature=fa9216c077f51c31a05fdb4f2135269d5711528cd9854c3e93c3ebd5c32c2b34&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Untitled.png%22&x-id=GetObject)
+![Chart](https://file.notion.so/f/s/76c76f71-2bc4-4e0b-9fa3-b7a298a2f6c7/Untitled.png?id=b4b70841-fc00-45f8-b5f5-1536606669a9&table=block&spaceId=09535c88-7789-4820-9158-4ae62342203e&expirationTimestamp=1680836460089&signature=51AggBWSBZ4gPd6nC2z3FFr1Xe8PVw7rb8h7rt6FwKM&downloadName=Untitled.png)
 
 `Chart2.jsx`
 
-![Chart2](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/e0995b17-8bae-498d-8b91-a2562272a1d6/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230313%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230313T065100Z&X-Amz-Expires=86400&X-Amz-Signature=926f6692f54f76d768ec4dd98b8a2d5909ae64a2ab7bf2499d7dd9ff981be729&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Untitled.png%22&x-id=GetObject)
+![Chart2](https://file.notion.so/f/s/c8ac8aa2-b012-469b-a80b-7ee2dbff7de6/Untitled.png?id=4a8735bf-37f0-4bb6-a24a-ced48f94ae58&table=block&spaceId=09535c88-7789-4820-9158-4ae62342203e&expirationTimestamp=1680836472761&signature=EM_cGwPhrCMc2qHK7qJ03Avb7dIM0PQwXmo07GBTi4M&downloadName=Untitled.png)
 
 `ExRate.jsx`
 
-![ExRate](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/8fedf78b-7d6f-4f28-b217-03893cf7e194/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230313%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230313T065051Z&X-Amz-Expires=86400&X-Amz-Signature=35fc21d2f86f5559b1022d873c7f8e1bbf08cc5d268a423084b2539eb3c65bc3&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Untitled.png%22&x-id=GetObject)
+![ExRate-jpy](https://file.notion.so/f/s/bd29e130-8574-4040-8df0-3fabdb55cb4c/Untitled.png?id=caf9500b-210d-4ee0-877b-9eba43f4d375&table=block&spaceId=09535c88-7789-4820-9158-4ae62342203e&expirationTimestamp=1680836551263&signature=MMAmi-DzvXzpxgsr-v7hzuhd2qiG7fPuN31Lq6pvEMc&downloadName=Untitled.png)
 
-![ExRate1](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/a8f08da2-b238-447c-802d-33d295aefcea/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230313%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230313T064954Z&X-Amz-Expires=86400&X-Amz-Signature=da5236ae7b22486f3fb0966654c16e1b29db2e1c7c839bdd60b3779ddb88fb37&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Untitled.png%22&x-id=GetObject)
-
-![ExRate2](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/26e53e92-4709-45cd-a76b-c41dac940100/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230313%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230313T065036Z&X-Amz-Expires=86400&X-Amz-Signature=f5d5806acf11a25e6ad468624b8e436e4e0a438610ae801e8b4694efb2112ca1&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Untitled.png%22&x-id=GetObject)
+![ExRate-usd](https://file.notion.so/f/s/47fc91a6-ea7f-45b3-842a-d13d5a642582/Untitled.png?id=a7941f53-21e8-4a17-8229-1cfd6b169f39&table=block&spaceId=09535c88-7789-4820-9158-4ae62342203e&expirationTimestamp=1680836572662&signature=bulOM_WsJU4j6vf_sz22LC30EGa7F5COdCu6arrZdZY&downloadName=Untitled.png)

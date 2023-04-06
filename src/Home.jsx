@@ -30,8 +30,6 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { tableColumns, dataset, tableDummyData } from "./model/dataSet";
 import axios from "axios";
-import ExRate from "./page/ExRate";
-
 // https://developers.sap.com/tutorials/ui5-webcomponents-react-routing.html
 
 const Home = () => {
